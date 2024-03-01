@@ -82,12 +82,30 @@ int main(int argc, char* argv[])
     // Feel free to update any code below this point
     // -----------------------------------------------
     Node* head = readList(argv[1]);
+    Node* temp = new Node(0,head);
+    head = temp;
+
     cout << "Original list: ";
     print(head);
 
     // Test out your linked list code
+    // Node* sm = NULL;
+    // Node* la = NULL;
+
+    // llpivot(head,sm,la,10);
+    // print(sm);
+    // print(la);
 
 
+    struct isEven{
+        bool operator()(int x) const{
+            return (x%2 == 0);
+        }
+    };
+
+    head = llfilter(head, isEven());
+
+    print(head);
 
     
     return 0;
